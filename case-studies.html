@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — SUFTNET</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.case-filter {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.filter-btn {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.case-card {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  transition: box-shadow 0.25s, transform 0.25s;
+  background: var(--white);
+}
+.case-card:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.09);
+  transform: translateY(-4px);
+}
+.case-image {
+  aspect-ratio: 16/8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.case-image .pattern { position: absolute; inset: 0; background-image: radial-gradient(var(--stone) 1.5px, transparent 1.5px); background-size: 24px 24px; }
+.case-image .emoji { position: relative; z-index: 1; }
+.ci-finova { background: #f0f4ff; }
+.ci-orbis { background: #eafaf3; }
+.ci-luminary { background: #fff8ec; }
+.ci-verdant { background: #f5f0ff; }
+.ci-nexus { background: #fff0f0; }
+.ci-atlas { background: #f0f8ff; }
+.case-body { padding: 1.75rem; }
+.case-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.case-tag {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background: var(--off-white);
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+}
+.case-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text); }
+.case-card p { font-size: 0.875rem; color: var(--text-2); line-height: 1.65; margin-bottom: 1.25rem; }
+.case-metrics { display: flex; gap: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.metric .n { font-family: var(--serif); font-size: 1.35rem; color: var(--accent); }
+.metric .l { font-family: var(--sans); font-size: 0.7rem; color: var(--text-3); letter-spacing: 0.05em; text-transform: uppercase; }
+.case-featured {
+  grid-column: 1 / -1;
+}
+.case-featured .case-image { aspect-ratio: 16/6; }
+
+.results-strip { background: var(--off-white); border-top: 1px solid var(--border); padding: 5rem 0; margin-top: 5rem; }
+.results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+.result-item { text-align: center; }
+.result-num { font-family: var(--serif); font-size: 3rem; color: var(--text); line-height: 1; }
+.result-label { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--text-3); text-transform: uppercase; margin-top: 0.4rem; }
+
+@media (max-width: 768px) {
+  .cases-grid { grid-template-columns: 1fr; }
+  .case-featured { grid-column: auto; }
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:56px;width:auto;display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="case-studies.html" class="active">Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="tag">Selected work</p>
+    <h1>Products we're proud to have built</h1>
+    <p>Across fintech, healthtech, logistics, e-commerce, and more. Every case study is a real story of a problem solved, a business grown, and a team pushed technically.</p>
+  </div>
+</div>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="case-filter">
+      <button class="filter-btn active">All projects</button>
+      <button class="filter-btn">Fintech</button>
+      <button class="filter-btn">Healthtech</button>
+      <button class="filter-btn">Logistics</button>
+      <button class="filter-btn">Mobile</button>
+      <button class="filter-btn">AI</button>
+    </div>
+
+    <div class="cases-grid">
+      <!-- Featured -->
+      <a href="#" class="case-card case-featured reveal">
+        <div class="case-image ci-finova"><div class="pattern"></div><div class="emoji">🏦</div></div>
+        <div class="case-body">
+          <div class="case-tags"><span class="case-tag">Fintech</span><span class="case-tag">Web App</span><span class="case-tag">React</span></div>
+          <h3>FinovaTech — Investment Platform Rebuild</h3>
+          <p>FinovaTech's legacy platform was costing them 3 clients per month due to reliability issues. We rebuilt the entire system in 16 weeks — new architecture, new frontend, zero downtime migration — and delivered a product their users finally loved.</p>
+          <div class="case-metrics">
+            <div class="metric"><div class="n">99.97%</div><div class="l">Uptime achieved</div></div>
+            <div class="metric"><div class="n">4 months</div><div class="l">Delivery time</div></div>
+            <div class="metric"><div class="n">3x</div><div class="l">User retention improvement</div></div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="case-card reveal">
+        <div class="case-image ci-orbis"><div class="pattern"></div><div class="emoji">🚛</div></div>
+        <div class="case-body">
+          <div class="case-tags"><span class="case-tag">Logistics</span><span class="case-tag">Mobile</span><span class="case-tag">React Native</span></div>
+          <h3>Orbis Logistics — Driver App</h3>
+          <p>A cross-platform mobile app for 4,000 drivers, built to work offline-first across poor mobile connections in rural logistics routes.</p>
+          <div class="case-metrics">
+            <div class="metric"><div class="n">4,200</div><div class="l">Active drivers</div></div>
+            <div class="metric"><div class="n">60%</div><div class="l">Ops cost reduction</div></div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="case-card reveal" data-delay="100">
+        <div class="case-image ci-luminary"><div class="pattern"></div><div class="emoji">🏥</div></div>
+        <div class="case-body">
+          <div class="case-tags"><span class="case-tag">Healthtech</span><span class="case-tag">Mobile</span><span class="case-tag">Flutter</span></div>
+          <h3>Luminary Health — Patient App</h3>
+          <p>A health tracking and appointment app for 50,000 patients. HIPAA compliant, offline capable, and built with accessibility as a first-class requirement.</p>
+          <div class="case-metrics">
+            <div class="metric"><div class="n">#1</div><div class="l">Health category ranking</div></div>
+            <div class="metric"><div class="n">50k</div><div class="l">Users at launch</div></div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="case-card reveal">
+        <div class="case-image ci-verdant"><div class="pattern"></div><div class="emoji">🌱</div></div>
+        <div class="case-body">
+          <div class="case-tags"><span class="case-tag">E-commerce</span><span class="case-tag">Web App</span><span class="case-tag">Next.js</span></div>
+          <h3>Verdant Market — Sustainable Marketplace</h3>
+          <p>An end-to-end marketplace platform for sustainable goods, built to handle seasonal traffic spikes 20× average without performance degradation.</p>
+          <div class="case-metrics">
+            <div class="metric"><div class="n">2.8s</div><div class="l">Avg. page load time</div></div>
+            <div class="metric"><div class="n">£4.2M</div><div class="l">First year GMV</div></div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="case-card reveal" data-delay="100">
+        <div class="case-image ci-nexus"><div class="pattern"></div><div class="emoji">🤖</div></div>
+        <div class="case-body">
+          <div class="case-tags"><span class="case-tag">AI/ML</span><span class="case-tag">SaaS</span><span class="case-tag">Python</span></div>
+          <h3>Nexus Analytics — AI Reporting Engine</h3>
+          <p>Embedded natural language querying into an enterprise BI platform, reducing average report creation time from 3 hours to 4 minutes.</p>
+          <div class="case-metrics">
+            <div class="metric"><div class="n">97%</div><div class="l">Query accuracy</div></div>
+            <div class="metric"><div class="n">45×</div><div class="l">Faster reporting</div></div>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="case-card reveal">
+        <div class="case-image ci-atlas"><div class="pattern"></div><div class="emoji">🗺️</div></div>
+        <div class="case-body">
+          <div class="case-tags"><span class="case-tag">B2B SaaS</span><span class="case-tag">Web App</span><span class="case-tag">Node.js</span></div>
+          <h3>Atlas Compliance — RegTech Platform</h3>
+          <p>A compliance management SaaS for financial services companies, handling sensitive data with end-to-end encryption and full audit trails.</p>
+          <div class="case-metrics">
+            <div class="metric"><div class="n">ISO 27001</div><div class="l">Certified build</div></div>
+            <div class="metric"><div class="n">120+</div><div class="l">Enterprise clients</div></div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="results-strip">
+  <div class="container">
+    <p class="tag">Collective outcomes</p>
+    <h2>Results across our portfolio</h2>
+    <div class="results-grid">
+      <div class="result-item reveal"><div class="result-num">150+</div><div class="result-label">Products shipped</div></div>
+      <div class="result-item reveal" data-delay="100"><div class="result-num">£200M+</div><div class="result-label">Client revenue generated</div></div>
+      <div class="result-item reveal" data-delay="200"><div class="result-num">4.9/5</div><div class="result-label">Average client rating</div></div>
+      <div class="result-item reveal" data-delay="300"><div class="result-num">78%</div><div class="result-label">Clients return for more</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:32px;width:auto;display:block;filter:brightness(0) invert(1);"></a>
+        <p>Application development services built on craft, transparency, and genuine care.</p>
+        <div class="social-icons"><a href="#" class="social-icon">Gh</a><a href="#" class="social-icon">Li</a><a href="#" class="social-icon">X</a></div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Development</a></li><li><a href="services.html">Mobile Apps</a></li><li><a href="services.html">API Engineering</a></li><li><a href="services.html">Cloud & DevOps</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About us</a></li><li><a href="process.html">Our process</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div class="footer-col"><h4>Get in touch</h4><ul><li><a href="contact.html">Start a project</a></li><li><a href="mailto:info@suftnet.com">info@suftnet.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 SUFTNET Ltd. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

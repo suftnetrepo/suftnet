@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — SUFTNET</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.about-story { padding: 5rem 0; }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.story-content h2 { margin-bottom: 1.5rem; }
+.story-content p { margin-bottom: 1.25rem; }
+.story-visual {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem;
+}
+.mission-block {
+  background: var(--accent);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-top: 2rem;
+}
+.mission-block h3 { font-family: var(--sans); font-weight: 700; color: #fff; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+.mission-block p { color: rgba(255,255,255,0.8); font-style: italic; font-size: 1rem; line-height: 1.7; }
+
+.values-section { background: var(--off-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 0; }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.value-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem;
+}
+.value-num { font-family: var(--serif); font-size: 2.5rem; color: var(--stone); line-height: 1; margin-bottom: 1rem; }
+.value-card h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+.value-card p { font-size: 0.875rem; }
+
+.team-section { padding: 5rem 0; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.team-card { text-align: center; }
+.team-avatar {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-size: 1.1rem; font-weight: 700;
+  color: var(--text-2);
+  margin: 0 auto 1rem;
+}
+.team-card h3 { font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--text); }
+.team-card .role { font-size: 0.8rem; color: var(--text-3); margin-top: 0.2rem; }
+
+.culture-strip { background: var(--text); padding: 5rem 0; }
+.culture-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; margin-top: 3rem; }
+.culture-item { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; }
+.culture-item h3 { font-family: var(--sans); font-weight: 600; color: #fff; font-size: 1.05rem; margin-bottom: 0.5rem; }
+.culture-item p { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.65; }
+
+@media (max-width: 900px) {
+  .story-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .culture-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:56px;width:auto;display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="case-studies.html">Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="tag">Who we are</p>
+    <h1>A team of engineers who care about craft</h1>
+    <p>We started SUFTNET because we believed building software could be done differently — with more honesty, more craft, and more genuine care for the end result.</p>
+  </div>
+</div>
+
+<section class="about-story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-content reveal">
+        <p class="tag">Our story</p>
+        <h2>Built by engineers, for product teams</h2>
+        <p>SUFTNET was founded in 2016 by a team of engineers who had worked inside big companies and seen firsthand what happens when software development becomes a commodity — rushed timelines, communication black holes, and products that don't survive first contact with real users.</p>
+        <p>We set out to build an agency that worked differently. One where senior engineers were directly involved on every project. Where clients had direct access to the people building their product. Where honesty was more valued than telling people what they wanted to hear.</p>
+        <p>Eight years later, we've delivered over 150 products across fintech, healthtech, logistics, e-commerce, and more. The approach hasn't changed.</p>
+      </div>
+      <div class="reveal" data-delay="150">
+        <div class="story-visual">
+          <h4>By the numbers</h4>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:1.5rem 0;">
+            <div>
+              <div style="font-family:var(--serif); font-size:2.5rem; color:var(--text); line-height:1">2016</div>
+              <div style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.08em; color:var(--text-3); text-transform:uppercase; margin-top:0.25rem">Founded</div>
+            </div>
+            <div>
+              <div style="font-family:var(--serif); font-size:2.5rem; color:var(--text); line-height:1">35+</div>
+              <div style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.08em; color:var(--text-3); text-transform:uppercase; margin-top:0.25rem">Team size</div>
+            </div>
+            <div>
+              <div style="font-family:var(--serif); font-size:2.5rem; color:var(--text); line-height:1">150+</div>
+              <div style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.08em; color:var(--text-3); text-transform:uppercase; margin-top:0.25rem">Projects</div>
+            </div>
+            <div>
+              <div style="font-family:var(--serif); font-size:2.5rem; color:var(--text); line-height:1">18</div>
+              <div style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.08em; color:var(--text-3); text-transform:uppercase; margin-top:0.25rem">Countries served</div>
+            </div>
+          </div>
+        </div>
+        <div class="mission-block">
+          <h3>Our mission</h3>
+          <p>"To build software that genuinely serves the people who use it — through technical excellence, honest partnership, and a refusal to cut corners."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values-section">
+  <div class="container">
+    <p class="tag">How we operate</p>
+    <h2>The values that guide every project</h2>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-num">01</div>
+        <h3>Honesty over comfort</h3>
+        <p>We tell you when an idea won't work, when timelines are unrealistic, and when a simpler solution is better. We'd rather lose a deal than mislead a client.</p>
+      </div>
+      <div class="value-card reveal" data-delay="100">
+        <div class="value-num">02</div>
+        <h3>Senior talent, always</h3>
+        <p>Your project isn't a training ground. Every team we deploy is led by senior engineers with production experience. No bait-and-switch.</p>
+      </div>
+      <div class="value-card reveal" data-delay="200">
+        <div class="value-num">03</div>
+        <h3>Ship with intention</h3>
+        <p>We don't celebrate code shipped — we celebrate problems solved. Moving fast matters, but not at the cost of quality that haunts you in year two.</p>
+      </div>
+      <div class="value-card reveal" data-delay="300">
+        <div class="value-num">04</div>
+        <h3>Radical transparency</h3>
+        <p>Open roadmaps, direct Slack access to your team, and weekly written updates. You'll never have to chase us for information.</p>
+      </div>
+      <div class="value-card reveal" data-delay="400">
+        <div class="value-num">05</div>
+        <h3>Built to last</h3>
+        <p>We optimise for the product you'll need in three years, not just the one you need today. Good architecture is the cheapest investment you can make.</p>
+      </div>
+      <div class="value-card reveal" data-delay="500">
+        <div class="value-num">06</div>
+        <h3>People first</h3>
+        <p>This means our team and yours. Sustainable pace, no crunch culture, healthy margins that let us attract and keep the best engineers in the industry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section" id="careers">
+  <div class="container">
+    <p class="tag">The people</p>
+    <h2>Meet the leadership team</h2>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar" style="background:var(--accent-light); color:var(--accent)">JA</div>
+        <h3>James Adeyemi</h3>
+        <p class="role">Founder & CEO</p>
+      </div>
+      <div class="team-card reveal" data-delay="80">
+        <div class="team-avatar">SK</div>
+        <h3>Sophie Kim</h3>
+        <p class="role">CTO</p>
+      </div>
+      <div class="team-card reveal" data-delay="160">
+        <div class="team-avatar" style="background:#eafaf3; color:var(--success)">RP</div>
+        <h3>Raj Patel</h3>
+        <p class="role">Head of Engineering</p>
+      </div>
+      <div class="team-card reveal" data-delay="240">
+        <div class="team-avatar" style="background:#fff8ec; color:#b07d20">LM</div>
+        <h3>Laura Morgan</h3>
+        <p class="role">Head of Design</p>
+      </div>
+      <div class="team-card reveal" data-delay="320">
+        <div class="team-avatar">BO</div>
+        <h3>Ben Okafor</h3>
+        <p class="role">Head of Delivery</p>
+      </div>
+      <div class="team-card reveal" data-delay="400">
+        <div class="team-avatar" style="background:var(--accent-light); color:var(--accent)">FZ</div>
+        <h3>Fatima Zahra</h3>
+        <p class="role">Lead Architect</p>
+      </div>
+      <div class="team-card reveal" data-delay="480">
+        <div class="team-avatar">TC</div>
+        <h3>Tom Chen</h3>
+        <p class="role">Head of Growth</p>
+      </div>
+      <div class="team-card reveal" data-delay="560">
+        <div class="team-avatar" style="background:#eafaf3; color:var(--success)">NW</div>
+        <h3>Nina Walsh</h3>
+        <p class="role">Operations Manager</p>
+      </div>
+    </div>
+    <div style="margin-top:3rem; padding:2rem; background:var(--off-white); border:1px solid var(--border); border-radius:var(--r-lg); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem;">
+      <div>
+        <h3 style="font-family:var(--sans); font-size:1.1rem; font-weight:600; margin-bottom:0.25rem">We're hiring</h3>
+        <p style="font-size:0.875rem">Senior engineers, designers, and delivery leads. Remote-first, async-friendly.</p>
+      </div>
+      <a href="contact.html" class="btn btn-primary">See open roles</a>
+    </div>
+  </div>
+</section>
+
+<section class="culture-strip">
+  <div class="container">
+    <p class="tag" style="color:rgba(255,255,255,0.4)">Working here</p>
+    <h2 style="color:#fff">A place people want to work</h2>
+    <div class="culture-grid">
+      <div class="culture-item reveal">
+        <h3>Remote-first, async-friendly</h3>
+        <p>Our team is distributed across 12 time zones. We've built our processes around async-first communication — deep work, not meeting marathons.</p>
+      </div>
+      <div class="culture-item reveal" data-delay="100">
+        <h3>Real engineering challenges</h3>
+        <p>No CRUD app factories here. We pick clients whose problems push our engineers technically and professionally.</p>
+      </div>
+      <div class="culture-item reveal" data-delay="200">
+        <h3>Learning budget</h3>
+        <p>Every engineer gets a £2,000 annual learning budget for courses, conferences, and books. No approval required.</p>
+      </div>
+      <div class="culture-item reveal" data-delay="300">
+        <h3>No crunch culture</h3>
+        <p>We price our projects honestly so nobody has to work unsustainable hours to hit margins. Good work takes time — we plan for that upfront.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:32px;width:auto;display:block;filter:brightness(0) invert(1);"></a>
+        <p>Application development services built on craft, transparency, and genuine care.</p>
+        <div class="social-icons"><a href="#" class="social-icon">Gh</a><a href="#" class="social-icon">Li</a><a href="#" class="social-icon">X</a></div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Development</a></li><li><a href="services.html">Mobile Apps</a></li><li><a href="services.html">API Engineering</a></li><li><a href="services.html">Cloud & DevOps</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About us</a></li><li><a href="process.html">Our process</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div class="footer-col"><h4>Get in touch</h4><ul><li><a href="contact.html">Start a project</a></li><li><a href="mailto:info@suftnet.com">info@suftnet.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 SUFTNET Ltd. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

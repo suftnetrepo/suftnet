@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — SUFTNET Application Development</title>
+<meta name="description" content="Full-stack web, mobile, API, cloud, design and AI services from SUFTNET.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.service-section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.service-section:last-of-type { border-bottom: none; }
+.svc-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.svc-layout.reverse { direction: rtl; }
+.svc-layout.reverse > * { direction: ltr; }
+.svc-content h2 { margin-bottom: 1rem; }
+.svc-content p { margin-bottom: 1.5rem; }
+.svc-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
+.svc-list li {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.925rem; color: var(--text-2);
+}
+.svc-list li::before {
+  content: '';
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%231a5cff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.svc-visual {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.svc-visual-pattern {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(var(--stone) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+.svc-visual-emoji { position: relative; z-index: 1; }
+.tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.tech-tag {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+}
+
+/* PRICING STRIP */
+.pricing-strip { background: var(--off-white); border-top: 1px solid var(--border); padding: 5rem 0; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.pricing-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2.5rem;
+}
+.pricing-card.featured {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.pricing-card.featured h3,
+.pricing-card.featured .price,
+.pricing-card.featured p,
+.pricing-card.featured li { color: #fff !important; }
+.pricing-card.featured .price-period { color: rgba(255,255,255,0.65) !important; }
+.pricing-card.featured hr { border-color: rgba(255,255,255,0.2); }
+.plan-badge {
+  display: inline-block;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+}
+.pricing-card.featured .plan-badge { background: rgba(255,255,255,0.2); color: #fff; }
+.price { font-family: var(--serif); font-size: 2.5rem; color: var(--text); line-height: 1; }
+.price-period { font-size: 0.875rem; color: var(--text-3); font-family: var(--sans); }
+.pricing-card hr { margin: 1.5rem 0; border-color: var(--border); }
+.pricing-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem; }
+.pricing-card li { font-size: 0.875rem; color: var(--text-2); display: flex; align-items: center; gap: 0.6rem; }
+.pricing-card li::before { content: '✓'; font-weight: 700; color: var(--accent); font-size: 0.8rem; }
+.pricing-card.featured li::before { color: rgba(255,255,255,0.9); }
+
+@media (max-width: 900px) {
+  .svc-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .svc-layout.reverse { direction: ltr; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:56px;width:auto;display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="case-studies.html">Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="tag">What we offer</p>
+    <h1>Services built to ship great products</h1>
+    <p>We cover the full spectrum of product development — from early ideation through to ongoing scale — plus social media video production to help you grow your brand online. No subcontracting. No hand-offs to junior teams.</p>
+  </div>
+</div>
+
+<section id="web" class="service-section">
+  <div class="container">
+    <div class="svc-layout">
+      <div class="svc-content reveal">
+        <p class="tag">Web Development</p>
+        <h2>Full-stack web application development</h2>
+        <p>We build production-grade web applications from the database layer up to the user interface. Our engineers choose the right architecture for your growth stage — not the one that's trendy right now.</p>
+        <ul class="svc-list">
+          <li>Custom SaaS and B2B application builds</li>
+          <li>High-traffic consumer platforms</li>
+          <li>E-commerce and marketplace systems</li>
+          <li>Dashboard and data-heavy interfaces</li>
+          <li>CMS integrations and headless builds</li>
+          <li>Legacy system modernisation</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">React</span><span class="tech-tag">Next.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Node.js</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Redis</span>
+        </div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <div class="svc-visual"><div class="svc-visual-pattern"></div><div class="svc-visual-emoji">⚡</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mobile" class="service-section" style="background:var(--off-white)">
+  <div class="container">
+    <div class="svc-layout reverse">
+      <div class="svc-content reveal">
+        <p class="tag">Mobile Development</p>
+        <h2>iOS and Android app development</h2>
+        <p>Whether you need a native experience for performance or a cross-platform build for speed to market, our mobile team delivers apps that feel at home on every device.</p>
+        <ul class="svc-list">
+          <li>React Native cross-platform builds</li>
+          <li>Native Swift / Kotlin development</li>
+          <li>Flutter for rapid prototyping</li>
+          <li>Offline-first architecture</li>
+          <li>App Store and Play Store submission</li>
+          <li>Push notifications and deep linking</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">React Native</span><span class="tech-tag">Flutter</span><span class="tech-tag">Swift</span><span class="tech-tag">Kotlin</span><span class="tech-tag">Expo</span>
+        </div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <div class="svc-visual"><div class="svc-visual-pattern"></div><div class="svc-visual-emoji">📱</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="api" class="service-section">
+  <div class="container">
+    <div class="svc-layout">
+      <div class="svc-content reveal">
+        <p class="tag">Backend & APIs</p>
+        <h2>API and backend engineering</h2>
+        <p>Robust, well-documented APIs and backend systems that your frontend can rely on. We design for failure, plan for scale, and obsess over response times.</p>
+        <ul class="svc-list">
+          <li>REST and GraphQL API design</li>
+          <li>Microservices and event-driven architecture</li>
+          <li>Authentication, RBAC, and security</li>
+          <li>Third-party integrations (Stripe, Twilio, etc.)</li>
+          <li>Database design and optimisation</li>
+          <li>WebSockets and real-time systems</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">Node.js</span><span class="tech-tag">Python</span><span class="tech-tag">Go</span><span class="tech-tag">GraphQL</span><span class="tech-tag">gRPC</span><span class="tech-tag">MongoDB</span>
+        </div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <div class="svc-visual"><div class="svc-visual-pattern"></div><div class="svc-visual-emoji">🔗</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cloud" class="service-section" style="background:var(--off-white)">
+  <div class="container">
+    <div class="svc-layout reverse">
+      <div class="svc-content reveal">
+        <p class="tag">Cloud & DevOps</p>
+        <h2>Cloud infrastructure and DevOps</h2>
+        <p>We set up the infrastructure that lets your team ship with confidence — automated pipelines, zero-downtime deployments, and observability at every layer.</p>
+        <ul class="svc-list">
+          <li>AWS, GCP, and Azure architectures</li>
+          <li>Docker and Kubernetes orchestration</li>
+          <li>CI/CD pipeline design and automation</li>
+          <li>Infrastructure as Code (Terraform)</li>
+          <li>Monitoring, alerting, and incident response</li>
+          <li>Cost optimisation audits</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">AWS</span><span class="tech-tag">GCP</span><span class="tech-tag">Terraform</span><span class="tech-tag">Docker</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">GitHub Actions</span>
+        </div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <div class="svc-visual"><div class="svc-visual-pattern"></div><div class="svc-visual-emoji">☁️</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="design" class="service-section">
+  <div class="container">
+    <div class="svc-layout">
+      <div class="svc-content reveal">
+        <p class="tag">Design</p>
+        <h2>UI/UX design and product design</h2>
+        <p>Great software starts with great design. Our designers work from first principles — deeply understanding your users before touching a design tool.</p>
+        <ul class="svc-list">
+          <li>User research and journey mapping</li>
+          <li>Wireframing and interactive prototypes</li>
+          <li>Design systems and component libraries</li>
+          <li>Usability testing and iteration</li>
+          <li>Responsive and accessible design</li>
+          <li>Brand identity and visual language</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">Figma</span><span class="tech-tag">Framer</span><span class="tech-tag">Storybook</span><span class="tech-tag">Maze</span>
+        </div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <div class="svc-visual"><div class="svc-visual-pattern"></div><div class="svc-visual-emoji">🎨</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ai" class="service-section" style="background:var(--off-white)">
+  <div class="container">
+    <div class="svc-layout reverse">
+      <div class="svc-content reveal">
+        <p class="tag">AI & Machine Learning</p>
+        <h2>AI integration and machine learning</h2>
+        <p>We help you embed genuine intelligence into your product — not gimmicky AI features, but capabilities that create real, measurable value for your users.</p>
+        <ul class="svc-list">
+          <li>LLM integration (OpenAI, Claude, Gemini)</li>
+          <li>RAG systems and vector search</li>
+          <li>Custom model fine-tuning</li>
+          <li>AI-powered automation workflows</li>
+          <li>Data pipelines and ETL</li>
+          <li>Recommendation and personalisation engines</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">OpenAI</span><span class="tech-tag">LangChain</span><span class="tech-tag">Pinecone</span><span class="tech-tag">Python</span><span class="tech-tag">PyTorch</span>
+        </div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <div class="svc-visual"><div class="svc-visual-pattern"></div><div class="svc-visual-emoji">🤖</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="video" class="service-section">
+  <div class="container">
+    <div class="svc-layout">
+      <div class="svc-content reveal">
+        <p class="tag">Social Media Video</p>
+        <h2>Short-form video production for every platform</h2>
+        <p>We script, shoot, and edit high-impact short-form videos built specifically for each platform's algorithm and audience. Whether you want to grow brand awareness, drive traffic to your product, or establish thought leadership — we produce content that performs.</p>
+        <p>Our video team handles everything: concept, scripting, recording direction, editing, captions, sound design, and platform-optimised export. You approve, we publish.</p>
+        <ul class="svc-list">
+          <li>YouTube Shorts (up to 60 seconds)</li>
+          <li>TikTok videos with trending audio and hooks</li>
+          <li>Instagram Reels and Stories</li>
+          <li>LinkedIn video posts for B2B audiences</li>
+          <li>Facebook Reels and video ads</li>
+          <li>X / Twitter short clips</li>
+          <li>Monthly content calendars and scripting</li>
+          <li>Analytics reporting and content optimisation</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">Adobe Premiere</span><span class="tech-tag">After Effects</span><span class="tech-tag">CapCut</span><span class="tech-tag">DaVinci Resolve</span><span class="tech-tag">Canva Pro</span>
+        </div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <div class="svc-visual" style="background:#0d1117; border-color:#1e2433;">
+          <div style="position:absolute;inset:0;background:linear-gradient(160deg,#1a1a3e 0%,#0d1117 100%);"></div>
+          <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.25rem;padding:2rem;">
+            <div style="font-size:3.5rem;">🎬</div>
+            <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;">
+              <span style="background:rgba(255,0,0,0.2);color:#ff6b6b;font-family:var(--sans);font-size:0.75rem;font-weight:700;padding:0.3rem 0.75rem;border-radius:4px;">YouTube</span>
+              <span style="background:rgba(0,255,255,0.08);color:#69e0e0;font-family:var(--sans);font-size:0.75rem;font-weight:700;padding:0.3rem 0.75rem;border-radius:4px;">TikTok</span>
+              <span style="background:rgba(200,100,255,0.15);color:#d08aff;font-family:var(--sans);font-size:0.75rem;font-weight:700;padding:0.3rem 0.75rem;border-radius:4px;">Instagram</span>
+              <span style="background:rgba(0,118,255,0.15);color:#60a8ff;font-family:var(--sans);font-size:0.75rem;font-weight:700;padding:0.3rem 0.75rem;border-radius:4px;">LinkedIn</span>
+              <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);font-family:var(--sans);font-size:0.75rem;font-weight:700;padding:0.3rem 0.75rem;border-radius:4px;">Facebook</span>
+              <span style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);font-family:var(--sans);font-size:0.75rem;font-weight:700;padding:0.3rem 0.75rem;border-radius:4px;">X / Twitter</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;width:100%;margin-top:0.5rem;">
+              <div style="text-align:center;">
+                <div style="font-family:var(--sans);font-weight:700;font-size:1.35rem;color:#fff;">4.8×</div>
+                <div style="font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:0.2rem;">Reach increase</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-family:var(--sans);font-weight:700;font-size:1.35rem;color:#fff;">30+</div>
+                <div style="font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:0.2rem;">Videos / month</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-family:var(--sans);font-weight:700;font-size:1.35rem;color:#fff;">62%</div>
+                <div style="font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:0.2rem;">Follower growth</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<div class="pricing-strip">
+  <div class="container">
+    <div style="max-width:560px">
+      <p class="tag">Engagement models</p>
+      <h2>How we engage</h2>
+      <p>We work in three primary modes depending on what you need. Not sure? We'll recommend the right fit during our discovery call.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="plan-badge">Fixed scope</div>
+        <div class="price">Project</div>
+        <p class="price-period" style="margin-top:0.35rem">Defined deliverable, fixed timeline</p>
+        <hr>
+        <ul>
+          <li>Clear scope & milestones</li>
+          <li>Fixed budget</li>
+          <li>Ideal for MVPs and v1 launches</li>
+          <li>Post-launch support period</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width:100%; justify-content:center">Talk to us</a>
+      </div>
+      <div class="pricing-card featured reveal" data-delay="120">
+        <div class="plan-badge">Most popular</div>
+        <div class="price">Retainer</div>
+        <p class="price-period" style="margin-top:0.35rem">Ongoing monthly engagement</p>
+        <hr>
+        <ul>
+          <li>Dedicated team allocation</li>
+          <li>Weekly planning sprints</li>
+          <li>Flexible scope per cycle</li>
+          <li>Priority response and support</li>
+          <li>Monthly strategy reviews</li>
+        </ul>
+        <a href="contact.html" class="btn" style="width:100%; justify-content:center; background:#fff; color:var(--accent); font-family:var(--sans); font-weight:700">Get started</a>
+      </div>
+      <div class="pricing-card reveal" data-delay="240">
+        <div class="plan-badge">Team extension</div>
+        <div class="price">Staff Aug</div>
+        <p class="price-period" style="margin-top:0.35rem">Engineers embedded in your team</p>
+        <hr>
+        <ul>
+          <li>Vetted senior engineers</li>
+          <li>Works within your stack & tools</li>
+          <li>Daily stand-up integration</li>
+          <li>Minimum 3-month commitment</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width:100%; justify-content:center">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:32px;width:auto;display:block;filter:brightness(0) invert(1);"></a>
+        <p>Application development services built on craft, transparency, and genuine care.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon">Gh</a><a href="#" class="social-icon">Li</a><a href="#" class="social-icon">X</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Development</a></li><li><a href="services.html">Mobile Apps</a></li><li><a href="services.html">API Engineering</a></li><li><a href="services.html">Cloud & DevOps</a></li><li><a href="services.html">AI Integration</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About us</a></li><li><a href="process.html">Our process</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div class="footer-col"><h4>Get in touch</h4><ul><li><a href="contact.html">Start a project</a></li><li><a href="mailto:info@suftnet.com">info@suftnet.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 SUFTNET Ltd. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

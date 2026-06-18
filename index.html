@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUFTNET — Application Development Services</title>
+<meta name="description" content="SUFTNET builds high-performance web and mobile applications for startups and enterprises. Clean architecture, modern technology, exceptional results.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ---- HOME-SPECIFIC ---- */
+.hero {
+  padding: calc(var(--nav-h) + 6rem) 0 5rem;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 100px;
+  margin-bottom: 2rem;
+}
+.hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1}50%{opacity:0.4} }
+.hero h1 { margin-bottom: 1.5rem; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-lead {
+  font-size: 1.1rem;
+  color: var(--text-2);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  line-height: 1.75;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-trust {
+  margin-top: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.trust-avatars { display: flex; }
+.trust-avatars .av {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--stone);
+  border: 2px solid #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700; font-family: var(--sans);
+  color: var(--text-2);
+  margin-left: -10px;
+}
+.trust-avatars .av:first-child { margin-left: 0; }
+.trust-text { font-size: 0.85rem; color: var(--text-3); line-height: 1.4; }
+.trust-text strong { color: var(--text); display: block; }
+.hero-visual {
+  position: relative;
+}
+.hero-card-stack { position: relative; width: 100%; aspect-ratio: 4/3.5; }
+.hcard {
+  position: absolute;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+.hcard-main {
+  width: 78%; left: 0; top: 0;
+  background: var(--white);
+}
+.hcard-stat {
+  width: 50%; right: 0; top: 20%;
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+}
+.hcard-stat .big { font-family: var(--serif); font-size: 2.5rem; color: #fff; line-height: 1; }
+.hcard-stat .lbl { font-size: 0.75rem; color: rgba(255,255,255,0.75); font-family: var(--sans); margin-top: 0.25rem; letter-spacing: 0.06em; }
+.hcard-code {
+  width: 65%; left: 5%; bottom: 0;
+  background: var(--text);
+  font-family: monospace; font-size: 0.75rem; line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+}
+.hcard-code .kw { color: #7c9eff; }
+.hcard-code .str { color: #85e0c0; }
+.mini-chart { display: flex; align-items: flex-end; gap: 4px; height: 40px; margin-top: 1rem; }
+.bar-item { flex: 1; border-radius: 3px 3px 0 0; background: var(--stone); }
+.bar-item.hi { background: var(--accent); }
+.kpi-row { display: flex; gap: 1.5rem; margin-bottom: 1rem; }
+.kpi { font-family: var(--sans); }
+.kpi .n { font-size: 1.35rem; font-weight: 700; color: var(--text); }
+.kpi .l { font-size: 0.7rem; color: var(--text-3); }
+.badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.badge {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  background: var(--accent-light);
+  color: var(--accent);
+}
+.badge.green { background: #eafaf3; color: #1a8a5c; }
+.badge.gray { background: var(--cream); color: var(--text-2); }
+
+/* STATS BAND */
+.stats-band {
+  background: var(--off-white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2.75rem;
+  color: var(--text);
+  line-height: 1;
+}
+.stat-label { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.08em; color: var(--text-3); text-transform: uppercase; margin-top: 0.4rem; }
+
+/* DIVIDER BAND */
+.divider-band {
+  background: var(--off-white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2.5rem 0;
+}
+.divider-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.divider-item {
+  display: flex; align-items: center; gap: 0.65rem;
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 600;
+  color: var(--text-2); white-space: nowrap;
+}
+.divider-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.divider-sep { width: 1px; height: 24px; background: var(--border); }
+
+/* VIDEO FEATURE SECTION */
+.video-feature {
+  background: var(--text);
+  padding: 6rem 0;
+  overflow: hidden;
+  position: relative;
+}
+.video-feature::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.vf-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+}
+.vf-content .tag { color: rgba(255,255,255,0.45); }
+.vf-content .tag::before { background: rgba(255,255,255,0.3); }
+.vf-content h2 { color: #fff; margin-bottom: 1.25rem; }
+.vf-content > p { color: rgba(255,255,255,0.6); font-size: 1.05rem; margin-bottom: 2.5rem; line-height: 1.75; }
+.vf-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+.vf-pill {
+  display: flex; align-items: center; gap: 0.5rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 0.4rem 1rem;
+  font-family: var(--sans); font-size: 0.8rem; font-weight: 600;
+  color: rgba(255,255,255,0.75);
+}
+.vf-pill .pip { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.vf-phone-wrap {
+  display: flex; justify-content: center; align-items: center;
+  gap: 1.5rem; position: relative;
+}
+.vf-phone {
+  width: 180px;
+  background: #111;
+  border-radius: 32px;
+  border: 3px solid #333;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  position: relative;
+}
+.vf-phone-inner { aspect-ratio: 9/16; background: #1a1a2e; position: relative; overflow: hidden; }
+.vf-phone-screen {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1rem;
+}
+.vf-phone-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+}
+.vf-phone-content { position: relative; z-index: 1; }
+.vf-phone-tag { display: inline-block; background: var(--accent); color: #fff; font-family: var(--sans); font-size: 0.55rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 3px; margin-bottom: 0.4rem; letter-spacing: 0.04em; }
+.vf-phone-title { font-family: var(--sans); font-size: 0.65rem; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 0.4rem; }
+.vf-phone-stats { display: flex; gap: 0.6rem; }
+.vf-phone-stat { font-family: var(--sans); font-size: 0.5rem; color: rgba(255,255,255,0.6); }
+.vf-phone-stat strong { color: #fff; display: block; font-size: 0.6rem; }
+.vf-play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-60%);
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.vf-play svg { margin-left: 2px; }
+.vf-phone-bars { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.1); }
+.vf-phone-bar { height: 100%; width: 45%; background: var(--accent); border-radius: 0 2px 2px 0; }
+.vf-side-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 1.25rem;
+  width: 160px;
+  backdrop-filter: blur(8px);
+}
+.vf-side-card h4 { color: rgba(255,255,255,0.4); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; font-family: var(--sans); font-weight: 600; }
+.vf-metric { margin-bottom: 0.85rem; }
+.vf-metric .vn { font-family: var(--sans); font-weight: 700; font-size: 1.25rem; color: #fff; line-height: 1; }
+.vf-metric .vl { font-size: 0.7rem; color: rgba(255,255,255,0.45); margin-top: 0.15rem; }
+.vf-platform-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 1rem; }
+.vf-platform {
+  font-family: var(--sans); font-size: 0.62rem; font-weight: 700;
+  padding: 0.2rem 0.5rem; border-radius: 4px;
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6);
+}
+.vf-platform.yt { background: rgba(255,0,0,0.2); color: #ff6b6b; }
+.vf-platform.tt { background: rgba(0,255,255,0.08); color: #69e0e0; }
+.vf-platform.ig { background: rgba(200,100,255,0.15); color: #d08aff; }
+.vf-platform.li { background: rgba(0,118,255,0.15); color: #60a8ff; }
+.vf-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-white { background: #fff !important; color: var(--accent) !important; font-family: var(--sans); font-weight: 700; }
+.btn-white:hover { background: var(--off-white) !important; }
+.btn-ghost-white {
+  background: transparent !important; color: rgba(255,255,255,0.8) !important;
+  border: 1.5px solid rgba(255,255,255,0.25) !important; font-family: var(--sans); font-weight: 600;
+}
+.btn-ghost-white:hover { border-color: rgba(255,255,255,0.6) !important; color: #fff !important; }
+
+/* SERVICES OVERVIEW */
+.services-intro { padding: 6rem 0 3rem; }
+.intro-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding-bottom: 6rem;
+}
+.svc {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  transition: all 0.25s;
+  text-decoration: none;
+  display: block;
+}
+.svc:hover { border-color: var(--accent); box-shadow: 0 8px 32px rgba(26,92,255,0.08); transform: translateY(-3px); }
+.svc-icon {
+  width: 44px; height: 44px;
+  background: var(--accent-light);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 1.25rem;
+}
+.svc h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.svc p { font-size: 0.875rem; color: var(--text-2); line-height: 1.65; }
+.svc-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 1.25rem;
+}
+
+/* PROCESS STRIP */
+.process-strip { background: var(--off-white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 0; }
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+}
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: calc(100% / 10);
+  right: calc(100% / 10);
+  height: 1px;
+  background: var(--border);
+}
+.pstep { padding: 0 1rem; text-align: center; position: relative; }
+.pstep-num {
+  width: 40px; height: 40px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 auto 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+.pstep h4 { font-family: var(--sans); font-size: 0.9rem; font-weight: 600; color: var(--text); text-transform: none; letter-spacing: 0; margin-bottom: 0.4rem; }
+.pstep p { font-size: 0.8rem; color: var(--text-3); line-height: 1.5; }
+
+/* WHY STRIP */
+.why-strip { padding: 6rem 0; }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.why-image {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.pattern-bg {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(var(--stone) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.5;
+}
+.floating-badges {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; gap: 0.75rem; align-items: center;
+}
+.fbadge {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.fbadge.accent { background: var(--accent); color: #fff; border-color: var(--accent); }
+.why-points { display: flex; flex-direction: column; gap: 2rem; }
+.why-point { display: flex; gap: 1.25rem; }
+.wp-icon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.why-point h3 { font-size: 1rem; font-family: var(--sans); font-weight: 600; margin-bottom: 0.3rem; }
+.why-point p { font-size: 0.875rem; }
+
+/* TESTIMONIAL */
+.testi-band { background: var(--text); padding: 6rem 0; }
+.testi-band .tag::before { background: rgba(255,255,255,0.3); }
+.testi-band .tag { color: rgba(255,255,255,0.5); }
+.testi-band h2 { color: #fff; margin-bottom: 3rem; }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.tcard {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r-lg);
+  padding: 2rem;
+}
+.tcard-stars { color: #f4b942; font-size: 0.85rem; margin-bottom: 1.25rem; }
+.tcard p { color: rgba(255,255,255,0.65); font-size: 0.925rem; font-style: italic; line-height: 1.7; margin-bottom: 1.5rem; }
+.tcard-author { display: flex; align-items: center; gap: 0.75rem; }
+.tcard-av {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(26,92,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-size: 0.8rem; font-weight: 700; color: #fff;
+}
+.tcard-av.b { background: rgba(26,138,92,0.3); }
+.tcard-av.c { background: rgba(255,140,0,0.2); color: #f4b942; }
+.tcard-name { font-family: var(--sans); font-size: 0.875rem; font-weight: 600; color: #fff; }
+.tcard-role { font-size: 0.775rem; color: rgba(255,255,255,0.4); }
+
+/* CTA BANNER */
+.cta-banner {
+  padding: 6rem 0;
+  background: var(--accent);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+.cta-banner h2 { color: #fff; max-width: 600px; margin: 0 auto 1rem; position: relative; }
+.cta-banner p { color: rgba(255,255,255,0.75); font-size: 1.1rem; max-width: 460px; margin: 0 auto 2.5rem; position: relative; }
+.cta-banner .btn-white {
+  background: #fff;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-weight: 700;
+}
+.cta-banner .btn-white:hover { background: var(--off-white); }
+.cta-banner .btn-ghost-white {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  font-family: var(--sans);
+  font-weight: 600;
+}
+.cta-banner .btn-ghost-white:hover { border-color: #fff; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* TECH SCROLL */
+.tech-scroll-section { padding: 3.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+.scroll-label { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); text-align: center; margin-bottom: 1.5rem; }
+.tech-track-wrap { overflow: hidden; margin: 0 -2.5rem; }
+.tech-track { display: flex; gap: 0.75rem; width: max-content; animation: marquee 28s linear infinite; }
+.tech-track:hover { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.tech-chip {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.45rem 1.1rem;
+  font-family: var(--sans);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .process-steps::before { display: none; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .why-image { aspect-ratio: 16/7; }
+  .vf-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .vf-phone-wrap { justify-content: flex-start; }
+}
+@media (max-width: 640px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .intro-row { grid-template-columns: 1fr; }
+  .divider-inner { gap: 1.25rem; }
+  .divider-sep { display: none; }
+  .vf-phone-wrap { flex-direction: column; align-items: flex-start; }
+  .vf-side-card { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:56px;width:auto;display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="case-studies.html">Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <h1>We build software that <em>actually</em> works</h1>
+        <p class="hero-lead">From concept to launch, SUFTNET crafts web and mobile applications that are fast, scalable, and built to last. We partner deeply — not just deliver code.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary">Start a project <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="case-studies.html" class="btn btn-outline">See our work</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-avatars">
+            <div class="av">SJ</div>
+            <div class="av">ML</div>
+            <div class="av">AP</div>
+            <div class="av">RK</div>
+          </div>
+          <div class="trust-text">
+            <strong>Trusted by 80+ companies</strong>
+            From seed-stage startups to global enterprises
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="hcard hcard-main">
+            <div class="kpi-row">
+              <div class="kpi"><div class="n">98%</div><div class="l">Client satisfaction</div></div>
+              <div class="kpi"><div class="n">4.5x</div><div class="l">Avg. ROI</div></div>
+            </div>
+            <div class="mini-chart">
+              <div class="bar-item" style="height:30%"></div>
+              <div class="bar-item" style="height:55%"></div>
+              <div class="bar-item" style="height:40%"></div>
+              <div class="bar-item hi" style="height:75%"></div>
+              <div class="bar-item hi" style="height:90%"></div>
+              <div class="bar-item hi" style="height:85%"></div>
+              <div class="bar-item hi" style="height:100%"></div>
+            </div>
+            <div style="margin-top:1rem">
+              <div class="badge-row">
+                <span class="badge">React</span>
+                <span class="badge green">On schedule</span>
+                <span class="badge gray">v2.4.0</span>
+              </div>
+            </div>
+          </div>
+          <div class="hcard hcard-stat">
+            <div class="big">150+</div>
+            <div class="lbl">PROJECTS DELIVERED</div>
+          </div>
+          <div class="hcard hcard-code">
+            <div><span class="kw">const</span> result = <span class="kw">await</span> suftnet</div>
+            <div>&nbsp;&nbsp;.<span class="kw">build</span>({ quality: <span class="str">'exceptional'</span> })</div>
+            <div>&nbsp;&nbsp;.<span class="kw">ship</span>({ onTime: <span class="str">true</span> });</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="reveal">
+        <div class="stat-num count-up" data-target="150" data-suffix="+">150+</div>
+        <div class="stat-label">Projects delivered</div>
+      </div>
+      <div class="reveal" data-delay="100">
+        <div class="stat-num count-up" data-target="8" data-suffix="+ yrs">8+ yrs</div>
+        <div class="stat-label">Industry experience</div>
+      </div>
+      <div class="reveal" data-delay="200">
+        <div class="stat-num count-up" data-target="98" data-suffix="%">98%</div>
+        <div class="stat-label">Client satisfaction</div>
+      </div>
+      <div class="reveal" data-delay="300">
+        <div class="stat-num count-up" data-target="30" data-suffix="+">30+</div>
+        <div class="stat-label">Expert engineers</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES OVERVIEW -->
+<section class="services-intro">
+  <div class="container">
+    <div class="intro-row">
+      <div>
+        <p class="tag">What we build</p>
+        <h2>Services built around your product goals</h2>
+      </div>
+      <div>
+        <p>We're not a generalist agency. Everything we do is focused on one thing: helping you build products that your users love and your business depends on.</p>
+        <br>
+        <a href="services.html" class="btn btn-text">View all services <svg width="14" height="14" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="services-grid">
+    <a href="services.html#web" class="svc reveal">
+      <div class="svc-icon">⚡</div>
+      <h3>Web Application Development</h3>
+      <p>Scalable, performant full-stack applications built with the right architecture for your growth stage.</p>
+      <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a href="services.html#mobile" class="svc reveal" data-delay="80">
+      <div class="svc-icon">📱</div>
+      <h3>Mobile App Development</h3>
+      <p>Native iOS and Android apps, or cross-platform builds that feel native on every device.</p>
+      <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a href="services.html#api" class="svc reveal" data-delay="160">
+      <div class="svc-icon">🔗</div>
+      <h3>API & Backend Engineering</h3>
+      <p>Microservices, REST, and GraphQL APIs built to handle enterprise-grade scale and complexity.</p>
+      <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a href="services.html#cloud" class="svc reveal" data-delay="240">
+      <div class="svc-icon">☁️</div>
+      <h3>Cloud & DevOps</h3>
+      <p>Infrastructure automation, CI/CD, and cloud-native deployments on AWS, GCP, and Azure.</p>
+      <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a href="services.html#design" class="svc reveal" data-delay="320">
+      <div class="svc-icon">🎨</div>
+      <h3>UI/UX Design</h3>
+      <p>User-centred design from wireframes to polished design systems — every pixel with purpose.</p>
+      <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+    <a href="services.html#ai" class="svc reveal" data-delay="400">
+      <div class="svc-icon">🤖</div>
+      <h3>AI & Machine Learning</h3>
+      <p>Embed intelligence into your product with LLM integrations, smart automation, and data pipelines.</p>
+      <div class="svc-arrow">Learn more <svg width="12" height="12" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </a>
+  </div>
+</div>
+
+<!-- VIDEO FEATURE -->
+<section class="video-feature">
+  <div class="container">
+    <div class="vf-inner">
+      <div class="vf-content reveal">
+        <p class="tag">Also in our toolkit</p>
+        <h2>Short-form video production for social media</h2>
+        <p>Beyond software, we help brands grow their digital presence. We script, produce, and edit high-impact short videos for YouTube Shorts, TikTok, Instagram Reels, and LinkedIn — content engineered to stop the scroll.</p>
+        <div class="vf-pills">
+          <div class="vf-pill"><div class="pip"></div>YouTube Shorts</div>
+          <div class="vf-pill"><div class="pip"></div>TikTok</div>
+          <div class="vf-pill"><div class="pip"></div>Instagram Reels</div>
+          <div class="vf-pill"><div class="pip"></div>LinkedIn Video</div>
+          <div class="vf-pill"><div class="pip"></div>Facebook Reels</div>
+          <div class="vf-pill"><div class="pip"></div>X / Twitter</div>
+        </div>
+        <div class="vf-cta-row">
+          <a href="services.html#video" class="btn btn-white">Explore this service</a>
+          <a href="contact.html" class="btn btn-ghost-white">Talk to us</a>
+        </div>
+      </div>
+      <div class="vf-phone-wrap reveal" data-delay="200">
+        <div class="vf-phone">
+          <div class="vf-phone-inner">
+            <div class="vf-phone-bars"><div class="vf-phone-bar"></div></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(160deg,#1a1a3e 0%,#0d1117 100%);"></div>
+            <div style="position:absolute;top:30%;left:50%;transform:translateX(-50%);width:60px;height:60px;border-radius:50%;background:rgba(26,92,255,0.15);display:flex;align-items:center;justify-content:center;">
+              <div style="font-size:1.75rem">🎬</div>
+            </div>
+            <div class="vf-play">
+              <svg width="12" height="12" fill="white" viewBox="0 0 12 12"><path d="M2 2l8 4-8 4V2z"/></svg>
+            </div>
+            <div class="vf-phone-screen">
+              <div class="vf-phone-overlay"></div>
+              <div class="vf-phone-content">
+                <div class="vf-phone-tag">SUFTNET</div>
+                <div class="vf-phone-title">How we build apps 10x faster with AI tools</div>
+                <div class="vf-phone-stats">
+                  <div class="vf-phone-stat"><strong>1.2M</strong>views</div>
+                  <div class="vf-phone-stat"><strong>84K</strong>likes</div>
+                  <div class="vf-phone-stat"><strong>3.2K</strong>shares</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vf-side-card">
+          <h4>Content results</h4>
+          <div class="vf-metric"><div class="vn">4.8×</div><div class="vl">Avg. reach increase</div></div>
+          <div class="vf-metric"><div class="vn">62%</div><div class="vl">Follower growth / mo</div></div>
+          <div class="vf-metric"><div class="vn">30+</div><div class="vl">Videos per month</div></div>
+          <div class="vf-platform-row">
+            <span class="vf-platform yt">YT</span>
+            <span class="vf-platform tt">TT</span>
+            <span class="vf-platform ig">IG</span>
+            <span class="vf-platform li">LI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS STRIP -->
+<div class="process-strip">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <p class="tag" style="justify-content:center">How we work</p>
+      <h2>A process designed to <em>eliminate</em> surprises</h2>
+    </div>
+    <div class="process-steps">
+      <div class="pstep reveal"><div class="pstep-num">01</div><h4>Discover</h4><p>Understand goals, users, and constraints</p></div>
+      <div class="pstep reveal" data-delay="100"><div class="pstep-num">02</div><h4>Architect</h4><p>Design systems and plan the roadmap</p></div>
+      <div class="pstep reveal" data-delay="200"><div class="pstep-num">03</div><h4>Build</h4><p>Agile sprints with weekly demos</p></div>
+      <div class="pstep reveal" data-delay="300"><div class="pstep-num">04</div><h4>Launch</h4><p>Test, harden, and deploy with care</p></div>
+      <div class="pstep reveal" data-delay="400"><div class="pstep-num">05</div><h4>Evolve</h4><p>Support, monitor, and scale over time</p></div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="process.html" class="btn btn-outline">See the full process</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHY SUFTNET -->
+<section class="why-strip">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-image">
+        <div class="pattern-bg"></div>
+        <div class="floating-badges">
+          <div class="fbadge">Built for scale</div>
+          <div class="fbadge accent">Delivered on time</div>
+          <div class="fbadge">Security-first architecture</div>
+          <div class="fbadge">Plain-English communication</div>
+        </div>
+      </div>
+      <div>
+        <p class="tag">Why SUFTNET</p>
+        <h2>Technical excellence,<br>human partnership</h2>
+        <p style="margin-bottom:2.5rem;">We're not an order-taker agency. We challenge assumptions, ask hard questions, and bring our full experience to every engagement.</p>
+        <div class="why-points">
+          <div class="why-point reveal">
+            <div class="wp-icon">🎯</div>
+            <div>
+              <h3>Outcome-driven delivery</h3>
+              <p>We measure success by business results, not lines of code. Every technical choice is grounded in your actual goals.</p>
+            </div>
+          </div>
+          <div class="why-point reveal" data-delay="120">
+            <div class="wp-icon">🔒</div>
+            <div>
+              <h3>Security by default</h3>
+              <p>Best practices are baked in from day one — not bolted on at the end when they're expensive to fix.</p>
+            </div>
+          </div>
+          <div class="why-point reveal" data-delay="240">
+            <div class="wp-icon">🔄</div>
+            <div>
+              <h3>Full transparency</h3>
+              <p>Weekly updates, shared roadmaps, direct engineer access. No middlemen, no corporate run-arounds.</p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <a href="about.html" class="btn btn-outline" style="margin-top:0.5rem">Meet the team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-band">
+  <div class="container">
+    <p class="tag">Client voices</p>
+    <h2>Words from those we've worked with</h2>
+    <div class="testi-grid">
+      <div class="tcard reveal">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"SUFTNET transformed our legacy platform into a modern, scalable product in under four months. Communication throughout was excellent — we always knew exactly where things stood."</p>
+        <div class="tcard-author">
+          <div class="tcard-av">SJ</div>
+          <div>
+            <div class="tcard-name">Sarah Johnson</div>
+            <div class="tcard-role">CTO, FinovaTech</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard reveal" data-delay="100">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"Their technical depth is rare for an agency. They challenged our assumptions constructively and delivered something better than we'd imagined. Genuinely felt like an extension of our own team."</p>
+        <div class="tcard-author">
+          <div class="tcard-av b">ML</div>
+          <div>
+            <div class="tcard-name">Marcus Lee</div>
+            <div class="tcard-role">Founder, Orbis Logistics</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard reveal" data-delay="200">
+        <div class="tcard-stars">★★★★★</div>
+        <p>"The mobile app SUFTNET built for us hit the App Store's top charts within three weeks of launch. They understood our users better than most teams we've worked with internally."</p>
+        <div class="tcard-author">
+          <div class="tcard-av c">AP</div>
+          <div>
+            <div class="tcard-name">Amara Patel</div>
+            <div class="tcard-role">Product Lead, Luminary Health</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <p class="tag" style="color:rgba(255,255,255,0.5); justify-content:center;">Let's build together</p>
+    <h2>Have a project in mind?</h2>
+    <p>Tell us what you're building. We'll reply within 24 hours with honest advice and a clear path forward.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn btn-white">Start a conversation</a>
+      <a href="case-studies.html" class="btn btn-ghost-white">See case studies</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:32px;width:auto;display:block;filter:brightness(0) invert(1);"></a>
+        <p>Application development services built on craft, transparency, and genuine care for the products we help create.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon">Gh</a>
+          <a href="#" class="social-icon">Li</a>
+          <a href="#" class="social-icon">X</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Web Development</a></li>
+          <li><a href="services.html">Mobile Apps</a></li>
+          <li><a href="services.html">API Engineering</a></li>
+          <li><a href="services.html">Cloud & DevOps</a></li>
+          <li><a href="services.html">AI Integration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="process.html">Our process</a></li>
+          <li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="contact.html">Start a project</a></li>
+          <li><a href="contact.html">Get a quote</a></li>
+          <li><a href="mailto:info@suftnet.com">info@suftnet.com</a></li>
+          <li><a href="contact.html">Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 SUFTNET Ltd. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

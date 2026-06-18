@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — SUFTNET</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.blog-layout { display: grid; grid-template-columns: 1fr 320px; gap: 4rem; padding: 5rem 0; }
+.blog-featured {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  text-decoration: none;
+  display: block;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.blog-featured:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.09); transform: translateY(-3px); }
+.feat-image {
+  background: var(--accent-light);
+  aspect-ratio: 16/7;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem;
+  position: relative; overflow: hidden;
+}
+.feat-image .pattern { position: absolute; inset: 0; background-image: radial-gradient(rgba(26,92,255,0.15) 1.5px, transparent 1.5px); background-size: 24px 24px; }
+.feat-image .emoji { position: relative; z-index: 1; }
+.feat-body { padding: 2rem; }
+.feat-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.feat-cat {
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+}
+.feat-date { font-size: 0.8rem; color: var(--text-3); }
+.feat-body h2 { font-size: 1.75rem; margin-bottom: 0.75rem; color: var(--text); }
+.feat-body p { font-size: 0.95rem; color: var(--text-2); line-height: 1.7; }
+
+.blog-posts { display: flex; flex-direction: column; gap: 2rem; }
+.blog-post {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1.25rem;
+  text-decoration: none;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.blog-post:last-child { border-bottom: none; }
+.post-thumb {
+  width: 100px; height: 80px;
+  border-radius: var(--r);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+.post-content .post-cat {
+  font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
+  color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.post-content h3 { font-size: 1rem; margin-bottom: 0.35rem; color: var(--text); transition: color 0.2s; }
+.blog-post:hover h3 { color: var(--accent); }
+.post-content p { font-size: 0.825rem; color: var(--text-3); }
+.post-content .post-meta { font-size: 0.775rem; color: var(--text-3); margin-top: 0.4rem; }
+
+/* SIDEBAR */
+.sidebar-section { margin-bottom: 2.5rem; }
+.sidebar-section h4 { margin-bottom: 1rem; }
+.sidebar-cats { display: flex; flex-direction: column; gap: 0.5rem; }
+.sidebar-cat {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.875rem; color: var(--text-2);
+  text-decoration: none; transition: color 0.2s;
+}
+.sidebar-cat:hover { color: var(--accent); }
+.sidebar-cat span { font-family: var(--sans); font-size: 0.75rem; background: var(--off-white); padding: 0.15rem 0.5rem; border-radius: 100px; color: var(--text-3); }
+
+.newsletter-box {
+  background: var(--accent);
+  border-radius: var(--r-lg);
+  padding: 1.75rem;
+}
+.newsletter-box h3 { font-family: var(--sans); font-weight: 700; color: #fff; font-size: 1rem; margin-bottom: 0.5rem; }
+.newsletter-box p { font-size: 0.825rem; color: rgba(255,255,255,0.75); margin-bottom: 1.25rem; }
+.newsletter-form { display: flex; flex-direction: column; gap: 0.5rem; }
+.newsletter-form input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: 4px;
+  border: none;
+  font-family: var(--body);
+  font-size: 0.875rem;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.5); }
+.newsletter-form button {
+  width: 100%;
+  padding: 0.65rem;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .blog-layout { grid-template-columns: 1fr; }
+  .blog-post { grid-template-columns: 1fr; }
+  .post-thumb { display: none; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:56px;width:auto;display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="case-studies.html">Work</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="tag">Engineering insights</p>
+    <h1>Thoughts on building great software</h1>
+    <p>Technical deep-dives, architecture decisions, lessons from the field, and honest takes on the state of software development.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="blog-layout">
+    <main>
+      <!-- Featured post -->
+      <a href="#" class="blog-featured reveal">
+        <div class="feat-image"><div class="pattern"></div><div class="emoji">⚙️</div></div>
+        <div class="feat-body">
+          <div class="feat-meta">
+            <span class="feat-cat">Engineering</span>
+            <span class="feat-date">12 June 2026 · 8 min read</span>
+          </div>
+          <h2>Why we stopped using ORM queries for aggregations (and what we do instead)</h2>
+          <p>After hitting serious performance walls on a client's analytics dashboard, we made a controversial call: write raw SQL for all aggregation queries. Here's what we learned six months later.</p>
+        </div>
+      </a>
+
+      <!-- Post list -->
+      <div class="blog-posts">
+        <a href="#" class="blog-post reveal">
+          <div class="post-thumb" style="background:#eafaf3">🏗️</div>
+          <div class="post-content">
+            <div class="post-cat">Architecture</div>
+            <h3>The real cost of microservices: what nobody tells you before you commit</h3>
+            <p>Distributed systems complexity, debugging hell, and when a monolith is genuinely the better choice.</p>
+            <div class="post-meta">5 June 2026 · 11 min read</div>
+          </div>
+        </a>
+        <a href="#" class="blog-post reveal" data-delay="60">
+          <div class="post-thumb" style="background:#fff8ec">🤖</div>
+          <div class="post-content">
+            <div class="post-cat">AI Integration</div>
+            <h3>Building production RAG systems: the parts the tutorials skip</h3>
+            <p>Chunking strategies, retrieval tuning, hallucination mitigation, and why evals matter more than the model you pick.</p>
+            <div class="post-meta">29 May 2026 · 14 min read</div>
+          </div>
+        </a>
+        <a href="#" class="blog-post reveal" data-delay="120">
+          <div class="post-thumb" style="background:#f5f0ff">📱</div>
+          <div class="post-content">
+            <div class="post-cat">Mobile</div>
+            <h3>React Native in 2026: should you still use it or switch to Flutter?</h3>
+            <p>A comparison based on real projects we've shipped in both — performance, developer experience, and long-term maintainability.</p>
+            <div class="post-meta">20 May 2026 · 9 min read</div>
+          </div>
+        </a>
+        <a href="#" class="blog-post reveal" data-delay="180">
+          <div class="post-thumb" style="background:#f0f4ff">🔒</div>
+          <div class="post-content">
+            <div class="post-cat">Security</div>
+            <h3>Security review checklist: what we run before every production deployment</h3>
+            <p>The practical checklist we've refined over 150+ deployments — from secret scanning to dependency audits to header hardening.</p>
+            <div class="post-meta">14 May 2026 · 7 min read</div>
+          </div>
+        </a>
+        <a href="#" class="blog-post reveal" data-delay="240">
+          <div class="post-thumb" style="background:#fff0f0">☁️</div>
+          <div class="post-content">
+            <div class="post-cat">DevOps</div>
+            <h3>Cutting AWS bills by 40%: a practical guide for growing startups</h3>
+            <p>Right-sizing, reserved instances, S3 lifecycle policies, and the five changes that made the biggest difference on client accounts.</p>
+            <div class="post-meta">6 May 2026 · 12 min read</div>
+          </div>
+        </a>
+        <a href="#" class="blog-post reveal" data-delay="300">
+          <div class="post-thumb" style="background:#f0f8ff">🎨</div>
+          <div class="post-content">
+            <div class="post-cat">Design</div>
+            <h3>Design systems at scale: how we maintain consistency across 5 product teams</h3>
+            <p>Shared tokens, component versioning, and the governance model that lets teams move fast without diverging.</p>
+            <div class="post-meta">28 April 2026 · 10 min read</div>
+          </div>
+        </a>
+      </div>
+    </main>
+
+    <aside>
+      <div class="sidebar-section">
+        <h4>Categories</h4>
+        <div class="sidebar-cats">
+          <a href="#" class="sidebar-cat">Engineering <span>12</span></a>
+          <a href="#" class="sidebar-cat">Architecture <span>8</span></a>
+          <a href="#" class="sidebar-cat">AI Integration <span>6</span></a>
+          <a href="#" class="sidebar-cat">Mobile <span>9</span></a>
+          <a href="#" class="sidebar-cat">DevOps <span>11</span></a>
+          <a href="#" class="sidebar-cat">Security <span>7</span></a>
+          <a href="#" class="sidebar-cat">Design <span>5</span></a>
+          <a href="#" class="sidebar-cat">Product <span>4</span></a>
+        </div>
+      </div>
+
+      <div class="sidebar-section newsletter-box">
+        <h3>Get new posts in your inbox</h3>
+        <p>No spam. Just a short email when we publish something useful.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="your@email.com">
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:32px;width:auto;display:block;filter:brightness(0) invert(1);"></a>
+        <p>Application development services built on craft, transparency, and genuine care.</p>
+        <div class="social-icons"><a href="#" class="social-icon">Gh</a><a href="#" class="social-icon">Li</a><a href="#" class="social-icon">X</a></div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Development</a></li><li><a href="services.html">Mobile Apps</a></li><li><a href="services.html">API Engineering</a></li><li><a href="services.html">Cloud & DevOps</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About us</a></li><li><a href="process.html">Our process</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div class="footer-col"><h4>Get in touch</h4><ul><li><a href="contact.html">Start a project</a></li><li><a href="mailto:info@suftnet.com">info@suftnet.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 SUFTNET Ltd. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

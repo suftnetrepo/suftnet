@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Process — SUFTNET</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.process-phase {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.phase-layout { display: grid; grid-template-columns: 280px 1fr; gap: 5rem; }
+.phase-number {
+  font-family: var(--serif);
+  font-size: 5rem;
+  color: var(--stone);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.phase-label { font-family: var(--sans); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.phase-content h2 { margin-bottom: 1rem; }
+.phase-content p { margin-bottom: 1.25rem; }
+.phase-deliverables {
+  margin-top: 2rem;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.5rem;
+}
+.phase-deliverables h4 { margin-bottom: 1rem; }
+.deliverable-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.deliverable-list li {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.875rem; color: var(--text-2);
+}
+.deliverable-list li::before {
+  content: '';
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0;
+}
+.phase-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  margin-top: 0.75rem;
+}
+
+.guarantee-section { background: var(--text); padding: 5rem 0; }
+.guarantee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.guarantee-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--r-lg);
+  padding: 2rem;
+}
+.guarantee-card .gnum { font-family: var(--serif); font-size: 2rem; color: var(--accent); margin-bottom: 0.75rem; }
+.guarantee-card h3 { font-family: var(--sans); font-weight: 600; color: #fff; font-size: 1rem; margin-bottom: 0.5rem; }
+.guarantee-card p { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+.tools-section { padding: 5rem 0; background: var(--off-white); border-top: 1px solid var(--border); }
+.tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2.5rem; }
+.tool-chip {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1rem;
+  text-align: center;
+}
+.tool-chip h4 { font-family: var(--sans); font-size: 0.8rem; font-weight: 700; color: var(--text); text-transform: none; letter-spacing: 0; }
+.tool-chip p { font-size: 0.75rem; color: var(--text-3); margin-top: 0.2rem; }
+
+@media (max-width: 900px) {
+  .phase-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .phase-number { font-size: 3rem; }
+  .guarantee-grid { grid-template-columns: 1fr; }
+  .tools-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:56px;width:auto;display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="process.html" class="active">Process</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="case-studies.html">Work</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="tag">How we work</p>
+    <h1>A process that respects your time and budget</h1>
+    <p>Every project follows a structured five-phase approach. Not because it's rigid, but because structure is what gives us the freedom to be flexible where it actually counts.</p>
+  </div>
+</div>
+
+<section class="process-phase">
+  <div class="container">
+    <div class="phase-layout">
+      <div class="reveal">
+        <div class="phase-number">01</div>
+        <div class="phase-label">Discovery</div>
+        <div class="phase-duration">1–2 weeks</div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <p class="tag">Phase one</p>
+        <h2>Understand everything before touching code</h2>
+        <p>We begin every engagement with a thorough discovery phase. This isn't a box-ticking exercise — it's where we genuinely learn your business, your users, your constraints, and your definition of success.</p>
+        <p>We conduct structured stakeholder interviews, review any existing systems and documentation, analyse competitive context, and surface any technical risks before they become expensive surprises.</p>
+        <p>By the end of discovery, we have enough understanding to challenge your initial brief where needed — and the relationship built to have that conversation productively.</p>
+        <div class="phase-deliverables">
+          <h4>Deliverables</h4>
+          <ul class="deliverable-list">
+            <li>Discovery report with key findings</li>
+            <li>User persona definitions and journey maps</li>
+            <li>Technical risk register</li>
+            <li>Scope definition and exclusions document</li>
+            <li>Initial project roadmap</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-phase" style="background:var(--off-white)">
+  <div class="container">
+    <div class="phase-layout">
+      <div class="reveal">
+        <div class="phase-number">02</div>
+        <div class="phase-label">Architecture</div>
+        <div class="phase-duration">1–2 weeks</div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <p class="tag">Phase two</p>
+        <h2>Make the hard decisions before they're expensive</h2>
+        <p>Architecture is where we decide how the system will be structured — the choices that are expensive to change later. We take this phase seriously, because a week of careful architecture planning saves months of painful refactoring.</p>
+        <p>We produce a detailed technical specification that your whole team can review and interrogate before a line of production code is written. No surprises, no hidden dependencies.</p>
+        <div class="phase-deliverables">
+          <h4>Deliverables</h4>
+          <ul class="deliverable-list">
+            <li>System architecture diagram</li>
+            <li>Data model and API design</li>
+            <li>Technology stack justification</li>
+            <li>Security and compliance considerations</li>
+            <li>Infrastructure design and cost estimates</li>
+            <li>Agreed definition of done</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-phase">
+  <div class="container">
+    <div class="phase-layout">
+      <div class="reveal">
+        <div class="phase-number">03</div>
+        <div class="phase-label">Build</div>
+        <div class="phase-duration">Varies by scope</div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <p class="tag">Phase three</p>
+        <h2>Agile delivery with full visibility</h2>
+        <p>Development runs in two-week sprints. Every sprint ends with a working demo — not a status deck, not a progress update, but running software you can see and interact with.</p>
+        <p>You'll have access to our project management board at all times, a shared Slack channel with your engineering team, and a weekly written summary of what was completed, what's coming next, and any decisions we need from you.</p>
+        <p>We do code reviews on every pull request, automated testing throughout, and peer review on architecture-level changes. Quality isn't a phase — it's a habit.</p>
+        <div class="phase-deliverables">
+          <h4>What you get</h4>
+          <ul class="deliverable-list">
+            <li>Fortnightly sprint demos</li>
+            <li>Access to shared project board</li>
+            <li>Weekly written updates</li>
+            <li>Direct Slack access to your team</li>
+            <li>Staging environment updated per sprint</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-phase" style="background:var(--off-white)">
+  <div class="container">
+    <div class="phase-layout">
+      <div class="reveal">
+        <div class="phase-number">04</div>
+        <div class="phase-label">Launch</div>
+        <div class="phase-duration">1–2 weeks</div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <p class="tag">Phase four</p>
+        <h2>Launch with confidence, not crossed fingers</h2>
+        <p>A production launch is not a moment of hope — it's the result of a rigorous pre-launch process. We run performance testing, security audits, accessibility checks, and cross-device verification before anything goes live.</p>
+        <p>We prepare rollback plans, set up monitoring and alerting, and are on call for 48 hours post-launch to catch anything that slips through. Our goal is that launch day is boring — which is exactly how it should be.</p>
+        <div class="phase-deliverables">
+          <h4>Deliverables</h4>
+          <ul class="deliverable-list">
+            <li>Pre-launch checklist sign-off</li>
+            <li>Performance benchmark report</li>
+            <li>Security audit summary</li>
+            <li>Monitoring and alerting setup</li>
+            <li>Deployment runbook and rollback plan</li>
+            <li>48-hour post-launch support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-phase">
+  <div class="container">
+    <div class="phase-layout">
+      <div class="reveal">
+        <div class="phase-number">05</div>
+        <div class="phase-label">Evolve</div>
+        <div class="phase-duration">Ongoing</div>
+      </div>
+      <div class="reveal" data-delay="150">
+        <p class="tag">Phase five</p>
+        <h2>Products aren't done — they evolve</h2>
+        <p>The best software is never finished. We offer ongoing retainer and support arrangements for clients who want to continue iterating, adding features, and scaling their product after launch.</p>
+        <p>Monthly retainer clients get a dedicated sprint allocation, priority support response times, and a monthly strategy review where we look at what's working, what's not, and where to focus next.</p>
+        <div class="phase-deliverables">
+          <h4>Ongoing support includes</h4>
+          <ul class="deliverable-list">
+            <li>Dedicated sprint allocation</li>
+            <li>Monthly product strategy review</li>
+            <li>Priority bug fix response (4hr SLA)</li>
+            <li>Security patch management</li>
+            <li>Infrastructure monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="guarantee-section">
+  <div class="container">
+    <p class="tag" style="color:rgba(255,255,255,0.4)">Our commitments</p>
+    <h2 style="color:#fff">What we guarantee on every project</h2>
+    <div class="guarantee-grid">
+      <div class="guarantee-card reveal">
+        <div class="gnum">24h</div>
+        <h3>Response time</h3>
+        <p>Any question, concern, or request gets a response within 24 business hours. Usually much faster.</p>
+      </div>
+      <div class="guarantee-card reveal" data-delay="100">
+        <div class="gnum">100%</div>
+        <h3>Senior engineers</h3>
+        <p>We never hand off to juniors without supervision. Your project is worked on by people who've done this before.</p>
+      </div>
+      <div class="guarantee-card reveal" data-delay="200">
+        <div class="gnum">0</div>
+        <h3>Surprise invoices</h3>
+        <p>Scope changes are discussed and agreed before they're worked on. No bill shock at month-end.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools-section">
+  <div class="container">
+    <p class="tag">Collaboration tools</p>
+    <h2>How we collaborate day to day</h2>
+    <div class="tools-grid">
+      <div class="tool-chip reveal"><h4>Linear</h4><p>Sprint planning & backlog</p></div>
+      <div class="tool-chip reveal" data-delay="60"><h4>Slack</h4><p>Daily communication</p></div>
+      <div class="tool-chip reveal" data-delay="120"><h4>GitHub</h4><p>Code & reviews</p></div>
+      <div class="tool-chip reveal" data-delay="180"><h4>Figma</h4><p>Design & prototypes</p></div>
+      <div class="tool-chip reveal" data-delay="240"><h4>Notion</h4><p>Documentation</p></div>
+      <div class="tool-chip reveal" data-delay="300"><h4>Loom</h4><p>Async video updates</p></div>
+      <div class="tool-chip reveal" data-delay="360"><h4>Datadog</h4><p>Monitoring & alerts</p></div>
+      <div class="tool-chip reveal" data-delay="420"><h4>Zoom</h4><p>Demos & workshops</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo-img"><img src="assets/img/logo.png" alt="Suftnet" style="height:32px;width:auto;display:block;filter:brightness(0) invert(1);"></a>
+        <p>Application development services built on craft, transparency, and genuine care.</p>
+        <div class="social-icons"><a href="#" class="social-icon">Gh</a><a href="#" class="social-icon">Li</a><a href="#" class="social-icon">X</a></div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Web Development</a></li><li><a href="services.html">Mobile Apps</a></li><li><a href="services.html">API Engineering</a></li><li><a href="services.html">Cloud & DevOps</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About us</a></li><li><a href="process.html">Our process</a></li><li><a href="case-studies.html">Case studies</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div class="footer-col"><h4>Get in touch</h4><ul><li><a href="contact.html">Start a project</a></li><li><a href="mailto:info@suftnet.com">info@suftnet.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 SUFTNET Ltd. All rights reserved.</p>
+      <div class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
